@@ -565,10 +565,10 @@ void
 procdumpP1(struct proc *p, char *state_string)
 {
   uint elapsed = ticks - p->start_ticks;
-	uint elapsed_second = elapsed/1000;
-	uint elapsed_millisecond = elapsed % 1000;
+  uint elapsed_second = elapsed/1000;
+  uint elapsed_millisecond = elapsed % 1000;
 	
-	cprintf("%d\t%s\t\t%d.%d\t%s\t%d\t", p->pid,p->name,elapsed_second,elapsed_millisecond,state_string,p->sz);
+  cprintf("%d\t%s\t\t%d.%d\t%s\t%d\t", p->pid,p->name,elapsed_second,elapsed_millisecond,state_string,p->sz);
 }
 #endif
 
