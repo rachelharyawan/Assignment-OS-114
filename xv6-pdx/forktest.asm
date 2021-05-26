@@ -44,7 +44,7 @@ forktest(void)
   int n, pid;
 
   printf(1, "fork test\n");
-  34:	68 3c 04 00 00       	push   $0x43c
+  34:	68 6c 04 00 00       	push   $0x46c
   39:	6a 01                	push   $0x1
   3b:	e8 c0 ff ff ff       	call   0 <printf>
 
@@ -88,14 +88,14 @@ forktest(void)
     printf(1, "fork claimed to work N times!\n", N);
   7f:	83 ec 04             	sub    $0x4,%esp
   82:	68 e8 03 00 00       	push   $0x3e8
-  87:	68 7c 04 00 00       	push   $0x47c
+  87:	68 ac 04 00 00       	push   $0x4ac
   8c:	6a 01                	push   $0x1
   8e:	e8 6d ff ff ff       	call   0 <printf>
     exit();
   93:	e8 f3 02 00 00       	call   38b <exit>
       printf(1, "wait stopped early\n");
   98:	83 ec 08             	sub    $0x8,%esp
-  9b:	68 47 04 00 00       	push   $0x447
+  9b:	68 77 04 00 00       	push   $0x477
   a0:	6a 01                	push   $0x1
   a2:	e8 59 ff ff ff       	call   0 <printf>
       exit();
@@ -113,7 +113,7 @@ forktest(void)
 
   printf(1, "fork test OK\n");
   b6:	83 ec 08             	sub    $0x8,%esp
-  b9:	68 6e 04 00 00       	push   $0x46e
+  b9:	68 9e 04 00 00       	push   $0x49e
   be:	6a 01                	push   $0x1
   c0:	e8 3b ff ff ff       	call   0 <printf>
 }
@@ -123,7 +123,7 @@ forktest(void)
   cc:	c3                   	ret    
     printf(1, "wait got too many\n");
   cd:	83 ec 08             	sub    $0x8,%esp
-  d0:	68 5b 04 00 00       	push   $0x45b
+  d0:	68 8b 04 00 00       	push   $0x48b
   d5:	6a 01                	push   $0x1
   d7:	e8 24 ff ff ff       	call   0 <printf>
     exit();
@@ -737,3 +737,38 @@ SYSCALL(date)
  433:	b8 17 00 00 00       	mov    $0x17,%eax
  438:	cd 40                	int    $0x40
  43a:	c3                   	ret    
+
+0000043b <getuid>:
+SYSCALL(getuid)
+ 43b:	b8 18 00 00 00       	mov    $0x18,%eax
+ 440:	cd 40                	int    $0x40
+ 442:	c3                   	ret    
+
+00000443 <getgid>:
+SYSCALL(getgid)
+ 443:	b8 19 00 00 00       	mov    $0x19,%eax
+ 448:	cd 40                	int    $0x40
+ 44a:	c3                   	ret    
+
+0000044b <getppid>:
+SYSCALL(getppid)
+ 44b:	b8 1a 00 00 00       	mov    $0x1a,%eax
+ 450:	cd 40                	int    $0x40
+ 452:	c3                   	ret    
+
+00000453 <setuid>:
+SYSCALL(setuid)
+ 453:	b8 1b 00 00 00       	mov    $0x1b,%eax
+ 458:	cd 40                	int    $0x40
+ 45a:	c3                   	ret    
+
+0000045b <setgid>:
+SYSCALL(setgid)
+ 45b:	b8 1c 00 00 00       	mov    $0x1c,%eax
+ 460:	cd 40                	int    $0x40
+ 462:	c3                   	ret    
+
+00000463 <getprocs>:
+ 463:	b8 1d 00 00 00       	mov    $0x1d,%eax
+ 468:	cd 40                	int    $0x40
+ 46a:	c3                   	ret    
