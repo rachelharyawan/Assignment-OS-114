@@ -9,6 +9,9 @@ struct spinlock;
 struct sleeplock;
 struct stat;
 struct superblock;
+#ifdef CS333_P2
+struct uproc;
+#endif // CS333_P2
 
 // bio.c
 void            binit(void);
@@ -55,7 +58,6 @@ struct inode*   nameiparent(char*, char*);
 int             readi(struct inode*, char*, uint, uint);
 void            stati(struct inode*, struct stat*);
 int             writei(struct inode*, char*, uint, uint);
-
 
 // ide.c
 void            ideinit(void);
@@ -124,6 +126,9 @@ void            userinit(void);
 int             wait(void);
 void            wakeup(void*);
 void            yield(void);
+#ifdef CS333_P2
+int             getprocs(uint max, struct uproc* table);
+#endif
 #ifdef CS333_P3
 void            printFreeList(void);
 void            printList(int);
