@@ -144,6 +144,7 @@ getcmd(char *buf, int nbuf)
 
 #ifdef USE_BUILTINS
 // ***** processing for shell builtins begins here *****
+
 int
 setbuiltin(char *p)
 {
